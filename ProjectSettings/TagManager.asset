@@ -11,6 +11,8 @@ TagManager:
   - Left
   - Right
   - End
+  - Portal
+  - Portal2
   layers:
   - Default
   - TransparentFX
@@ -27,8 +29,8 @@ TagManager:
   - Left
   - Right
   - End
-  - 
-  - 
+  - Portal
+  - Portal2
   - 
   - 
   - 
