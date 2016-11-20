@@ -13,6 +13,7 @@ TagManager:
   - End
   - Portal
   - Portal2
+  - Text
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - End
   - Portal
   - Portal2
-  - 
+  - Text
   - 
   - 
   - 
