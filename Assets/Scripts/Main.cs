@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class Main : MonoBehaviour {
 
     public static int level = 1;
-    private float timer = 4.0f;
+    private float timer = 3.0f;
 
     void FixedUpdate()
     {
