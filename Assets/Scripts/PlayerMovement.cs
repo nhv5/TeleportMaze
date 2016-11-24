@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour {
 
@@ -32,7 +33,18 @@ public class PlayerMovement : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("End")) Main.NextLevel();
+        if (other.gameObject.CompareTag("End"))
+        {
+            if(SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                Main.NextLevel(4);
+            }
+            else
+            {
+                Main.NextLevel();
+            }
+            
+        }
 
         if (other.gameObject.CompareTag("Up")) Teleport("up");
 
