@@ -35,15 +35,20 @@ public class PlayerMovement : MonoBehaviour {
     {
         if (other.gameObject.CompareTag("End"))
         {
-            if(SceneManager.GetActiveScene().buildIndex == 4)
+            if(SceneManager.GetActiveScene().buildIndex == 5)
             {
-                Main.NextLevel(4);
+                Main.NextLevel(5);
             }
             else
             {
                 Main.NextLevel();
             }
             
+        }
+
+        if (other.gameObject.CompareTag("TimePad"))
+        {
+            Main.deactivateWall();
         }
 
         if (other.gameObject.CompareTag("Up")) Teleport("up");
@@ -55,6 +60,8 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Right")) Teleport("right");
 
         if (other.gameObject.CompareTag("Portal")) Teleport("portal");
+
+        if (other.gameObject.CompareTag("WallTrigger")) Teleport();
 
     }
 
