@@ -19,6 +19,10 @@ TagManager:
   - Level3
   - TimePad
   - WallTrigger
+  - WallParticle
+  - Barrier
+  - Play
+  - Main
   layers:
   - Default
   - TransparentFX
@@ -43,10 +47,10 @@ TagManager:
   - Level3
   - TimePad
   - WallTrigger
-  - 
-  - 
-  - 
-  - 
+  - WallParticle
+  - Barrier
+  - Play
+  - Main
   - 
   - 
   - 

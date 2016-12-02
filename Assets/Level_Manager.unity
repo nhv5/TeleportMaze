@@ -460,6 +460,7 @@ GameObject:
   - 81: {fileID: 1042522090}
   - 114: {fileID: 1042522095}
   - 114: {fileID: 1042522097}
+  - 114: {fileID: 1042522096}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -546,6 +547,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fe48c328ff892545aa6f451a3daa2aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1042522096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1042522089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 822c89ff0e7c49649a243100597b64a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level2: {fileID: 1920371020}
 --- !u!114 &1042522097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -557,7 +570,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5dca5997097e1140a70187ff7ade8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisButton: {fileID: 14676755}
+  level1: {fileID: 14676755}
 --- !u!1 &1130413184
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +802,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 33852019633c56a44ac1e3b75674aa41, type: 3}
+      - m_Target: {fileID: 1042522089}
         m_MethodName: 
         m_Mode: 1
         m_Arguments:

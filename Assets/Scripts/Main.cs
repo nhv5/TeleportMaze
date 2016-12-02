@@ -4,11 +4,17 @@ using UnityEngine.SceneManagement;
 
 public class Main : MonoBehaviour {
 
-    public static int level = 2;
+    public static int level = 3;
     private float timer = 3.0f;
-    private float wallTimer = 1.0f;
-    public static bool wallDeactive = false;
-    public static GameObject wt;
+    public static int previousScene = 0;
+    public static int currentScene = 0;
+
+    void Start()
+    {
+        previousScene = currentScene;
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+        
+    }
 
     void FixedUpdate()
     {
@@ -20,22 +26,20 @@ public class Main : MonoBehaviour {
             if (timer <= 0) SceneManager.LoadScene(1);
         }
 
-        if(wallDeactive == true )
-        {
-            wallTimer -= Time.deltaTime;
-            if (wallTimer <= 0)
-            {
-                wt.transform.position = new Vector3(wt.transform.position.x, 0.12f, wt.transform.position.z);
-                wallTimer = 1.0f;
-                wallDeactive = false;
-            }
-        }
-
     }
 
     public static void NextLevel()
     {
         level += 1;
+        if (SceneManager.GetActiveScene().buildIndex == 7)
+        {
+            level = 8;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            level = 4;
+        }
         SceneManager.LoadScene(level);
     }
 
@@ -44,11 +48,10 @@ public class Main : MonoBehaviour {
         SceneManager.LoadScene(1);
     }
 
-    public static void deactivateWall()
+    public static int getCurrentLevel()
     {
-        wt = GameObject.FindWithTag("WallTrigger");
-        wt.transform.position = new Vector3(wt.transform.position.x, -1.0f, wt.transform.position.z);
-        wallDeactive = true;
+        int s = previousScene;
+        return s;
     }
 
 }

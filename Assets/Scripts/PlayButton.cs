@@ -3,13 +3,13 @@ using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelOneButton : MonoBehaviour {
+public class PlayButton : MonoBehaviour {
 
-    public Button level1;
+    public Button play;
 
     void Start()
     {
-        Button b = level1.GetComponent<Button>();
+        Button b = play.GetComponent<Button>();
         b.onClick.AddListener(WhichLevel);
     }
 
@@ -20,6 +20,7 @@ public class LevelOneButton : MonoBehaviour {
 
     void WhichLevel()
     {
-        SceneManager.LoadScene(3);
+        int current = Main.getCurrentLevel();
+        SceneManager.LoadScene(current);
     }
 }

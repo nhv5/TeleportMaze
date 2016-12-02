@@ -10,6 +10,10 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 spawn;
     public GameObject tele;
 
+    private float wallTimer = 1.2f;
+    public static bool wallDeactive = false;
+    public static GameObject wt;
+
     // Use this for initialization
     void Start () {
 
@@ -29,15 +33,42 @@ public class PlayerMovement : MonoBehaviour {
 
         if (transform.position.y < -3) Teleport();
 
+        if (wallDeactive == true)
+        {
+            wallTimer -= Time.deltaTime;
+            if (wallTimer <= 0)
+            {
+                wt.transform.position = new Vector3(wt.transform.position.x, 0.12f, wt.transform.position.z);
+                wallTimer = 1.0f;
+                wallDeactive = false;
+            }
+        }
+
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.CompareTag("WallParticle")) Teleport();
+
+        if (other.gameObject.CompareTag("Barrier"))
+        {
+            other.gameObject.SetActive(false);
+            Teleport();
+        }
+
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("End"))
         {
-            if(SceneManager.GetActiveScene().buildIndex == 5)
+            if(SceneManager.GetActiveScene().buildIndex == 6)
             {
-                Main.NextLevel(5);
+                Main.NextLevel(6);
+            }
+            else if (SceneManager.GetActiveScene().buildIndex == 10)
+            {
+                Main.NextLevel(10);
             }
             else
             {
@@ -48,7 +79,7 @@ public class PlayerMovement : MonoBehaviour {
 
         if (other.gameObject.CompareTag("TimePad"))
         {
-            Main.deactivateWall();
+            deactivateWall();
         }
 
         if (other.gameObject.CompareTag("Up")) Teleport("up");
@@ -104,6 +135,11 @@ public class PlayerMovement : MonoBehaviour {
         transform.position = spawn;
     }
 
-
+    public static void deactivateWall()
+    {
+        wt = GameObject.FindWithTag("WallTrigger");
+        wt.transform.position = new Vector3(wt.transform.position.x, -1.0f, wt.transform.position.z);
+        wallDeactive = true;
+    }
 
 }
