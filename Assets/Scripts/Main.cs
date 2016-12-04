@@ -31,14 +31,19 @@ public class Main : MonoBehaviour {
     public static void NextLevel()
     {
         level += 1;
+        if (SceneManager.GetActiveScene().buildIndex == 3)
+        {
+            level = 4;
+        }
+
         if (SceneManager.GetActiveScene().buildIndex == 7)
         {
             level = 8;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().buildIndex == 11)
         {
-            level = 4;
+            level = 12;
         }
         SceneManager.LoadScene(level);
     }

@@ -70,6 +70,10 @@ public class PlayerMovement : MonoBehaviour {
             {
                 Main.NextLevel(10);
             }
+            else if (SceneManager.GetActiveScene().buildIndex == 14)
+            {
+                Main.NextLevel(14);
+            }
             else
             {
                 Main.NextLevel();
@@ -91,6 +95,8 @@ public class PlayerMovement : MonoBehaviour {
         if (other.gameObject.CompareTag("Right")) Teleport("right");
 
         if (other.gameObject.CompareTag("Portal")) Teleport("portal");
+
+        if (other.gameObject.CompareTag("Portal3")) Teleport("portal3");
 
         if (other.gameObject.CompareTag("WallTrigger")) Teleport();
 
@@ -126,6 +132,12 @@ public class PlayerMovement : MonoBehaviour {
         {
             Instantiate(tele, transform.position, Quaternion.identity);
             transform.position = new Vector3(GameObject.FindGameObjectWithTag("Portal2").transform.position.x, 0.1f, GameObject.FindGameObjectWithTag("Portal2").transform.position.z);
+        }
+
+        if (direction.Equals("portal3"))
+        {
+            Instantiate(tele, transform.position, Quaternion.identity);
+            transform.position = new Vector3(GameObject.FindGameObjectWithTag("Portal4").transform.position.x, 0.1f, GameObject.FindGameObjectWithTag("Portal4").transform.position.z);
         }
     }
 

@@ -23,6 +23,9 @@ TagManager:
   - Barrier
   - Play
   - Main
+  - Popup
+  - Portal3
+  - Portal4
   layers:
   - Default
   - TransparentFX
@@ -51,9 +54,9 @@ TagManager:
   - Barrier
   - Play
   - Main
-  - 
-  - 
-  - 
+  - Popup
+  - Portal3
+  - Portal4
   - 
   - 
   m_SortingLayers:
